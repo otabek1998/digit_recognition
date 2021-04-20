@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/styles.css') }}">
+
+{% endblock %}
+
+{% block body %}
+<header>
+    <h1>Draw number</h1>
+</header>
+<div>
+    <canvas id="sheet" class="sheet"></canvas>
+    <div class="buttons">
+        <button onclick="clearImage()" type="button" id = "clearbutton">Clear</button>
+        <form method="post" enctype="multipart/form-data" id="sheet-submit">
+            <input type="hidden", name="canvas", id="canvas-image">
+            <button type="submit" id = "submitbutton">Submit</button>
+        </form>    
+    </div>
+    <h3>Your Prediction is {{ prediction }}</h3>
+</div>
+
+<script src="{{ url_for('static', filename='js/index.js') }}"></script>
+{% endblock %}

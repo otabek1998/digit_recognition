@@ -1,0 +1,32 @@
+body{
+    background-color: #786fa6;
+    font-family: sans-serif;
+
+}
+header{
+    text-align: center;
+    color: whitesmoke;
+}
+.sheet{
+    background-color:black;
+    display: block;
+    margin:auto;
+    width:500px;
+    padding: 1px; 
+    border-radius: 24px;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+button{
+    margin-right: 10px;
+    margin-left: 10px;
+    width: 70px;
+    height: 40px;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 12px;
+}
