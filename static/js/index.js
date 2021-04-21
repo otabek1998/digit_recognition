@@ -52,10 +52,8 @@ function handleStart(evt) {
     for (var i = 0; i < touches.length; i++) {
       console.log("touchstart:" + i + "...");
       ongoingTouches.push(copyTouch(touches[i]));
-      var color = colorForTouch(touches[i]);
       ctx.beginPath();
       ctx.arc(touches[i].pageX, touches[i].pageY, 4, 0, 2 * Math.PI, false);  // a circle at the start
-      ctx.fillStyle = color;
       ctx.fill();
       console.log("touchstart:" + i + ".");
     }
@@ -68,7 +66,6 @@ function handleStart(evt) {
     var touches = evt.changedTouches;
   
     for (var i = 0; i < touches.length; i++) {
-      var color = colorForTouch(touches[i]);
       var idx = ongoingTouchIndexById(touches[i].identifier);
   
       if (idx >= 0) {
@@ -79,7 +76,6 @@ function handleStart(evt) {
         console.log("ctx.lineTo(" + touches[i].pageX + ", " + touches[i].pageY + ");");
         ctx.lineTo(touches[i].pageX, touches[i].pageY);
         ctx.lineWidth = 4;
-        ctx.strokeStyle = color;
         ctx.stroke();
   
         ongoingTouches.splice(idx, 1, copyTouch(touches[i]));  // swap in the new touch record
@@ -97,12 +93,10 @@ function handleStart(evt) {
     var touches = evt.changedTouches;
   
     for (var i = 0; i < touches.length; i++) {
-      var color = colorForTouch(touches[i]);
       var idx = ongoingTouchIndexById(touches[i].identifier);
   
       if (idx >= 0) {
         ctx.lineWidth = 4;
-        ctx.fillStyle = color;
         ctx.beginPath();
         ctx.moveTo(ongoingTouches[idx].pageX, ongoingTouches[idx].pageY);
         ctx.lineTo(touches[i].pageX, touches[i].pageY);
