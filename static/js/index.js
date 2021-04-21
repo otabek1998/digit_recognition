@@ -8,7 +8,7 @@ const btnSubmit = document.querySelector("#submitbutton");
 
 canv.width = 500;
 canv.height = 500;
-ctx.fillStyle='black';
+ctx.fillStyle='white';
 ctx.lineWidth = 10*2;
 
 canv.addEventListener('mousedown', function(e){
