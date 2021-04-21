@@ -36,30 +36,12 @@ canv.addEventListener('mousemove', function(e){
     }
 });
 
-canv.addEventListener('touchstart', function(e){
-    isMouseDown = true;
-});
 
-
-canv.addEventListener('touchend', function(e){
-    isMouseDown = false;
-    ctx.beginPath();
-});
-
-
-canv.addEventListener('touchmove', function(e){
-    if(isMouseDown){
-        ctx.lineTo(e.offsetX, e.offsetY);
-        ctx.stroke();
-
-        ctx.beginPath();
-        ctx.arc(e.offsetX, e.offsetY, 10, 0, Math.PI*2);
-        ctx.fill();
-
-        ctx.beginPath();
-        ctx.moveTo(e.offsetX, e.offsetY);
-    }
-});
+canv.addEventListener("touchstart", handleStart, false);
+canv.addEventListener("touchend", handleEnd, false);
+canv.addEventListener("touchcancel", handleCancel, false);
+canv.addEventListener("touchmove", handleMove, false);
+  
 
 function clearImage(){
     ctx.clearRect(0, 0, canv.width, canv.height);
