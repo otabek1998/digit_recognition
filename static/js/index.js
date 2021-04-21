@@ -37,10 +37,10 @@ canv.addEventListener('mousemove', function(e){
 });
 
 
-canv.addEventListener("touchstart", handleStart, false);
-canv.addEventListener("touchend", handleEnd, false);
-canv.addEventListener("touchcancel", handleCancel, false);
-canv.addEventListener("touchmove", handleMove, false);
+canv.addEventListener("touchstart", handleStart, true);
+canv.addEventListener("touchend", handleEnd, true);
+canv.addEventListener("touchcancel", handleCancel, true);
+canv.addEventListener("touchmove", handleMove, true);
 
 function handleStart(evt) {
     evt.preventDefault();
