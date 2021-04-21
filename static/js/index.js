@@ -15,12 +15,39 @@ canv.addEventListener('mousedown', function(e){
     isMouseDown = true;
 });
 
+
 canv.addEventListener('mouseup', function(e){
     isMouseDown = false;
     ctx.beginPath();
 });
 
+
 canv.addEventListener('mousemove', function(e){
+    if(isMouseDown){
+        ctx.lineTo(e.offsetX, e.offsetY);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.arc(e.offsetX, e.offsetY, 10, 0, Math.PI*2);
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.moveTo(e.offsetX, e.offsetY);
+    }
+});
+
+canv.addEventListener('touchstart', function(e){
+    isMouseDown = true;
+});
+
+
+canv.addEventListener('touchend', function(e){
+    isMouseDown = false;
+    ctx.beginPath();
+});
+
+
+canv.addEventListener('touchmove', function(e){
     if(isMouseDown){
         ctx.lineTo(e.offsetX, e.offsetY);
         ctx.stroke();
