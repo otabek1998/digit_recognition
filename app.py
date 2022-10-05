@@ -32,7 +32,6 @@ def upload_pred():
         img.save(UPLOAD_FOLDER + filename + ".png","PNG")
         
         file = open(UPLOAD_FOLDER + filename + '.png', 'rb')
-        #file = open("eight.png", 'rb')
         img_bytes = file.read()
         tensor = transform_image(img_bytes)
         pred = get_prediction(tensor)
